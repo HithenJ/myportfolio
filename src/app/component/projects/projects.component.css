@@ -1,0 +1,28 @@
+#projects {
+  background-color: transparent;
+  padding-top: 120px;  /* reduced spacing */
+  padding-bottom: 150px;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+section{
+  padding-top: 150px;
+}
+#projects h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Project Cards */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 10px;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}

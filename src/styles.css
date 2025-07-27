@@ -2,10 +2,12 @@
 /* styles.css */
 
 body {
-  background: linear-gradient(to right, #113ac2, #000000); /* Light purple tone */
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
+  background: linear-gradient(to right, #113ac2, #000000);
+  background-attachment: fixed;
+  background-size: cover;
+
 }
+
 
 section {
   padding-top: 80px;

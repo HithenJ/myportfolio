@@ -1,4 +1,6 @@
 /* Hero section full height with background */
+
+
 #hero {
   background-color: transparent;
   min-height: 100vh;
@@ -34,11 +36,12 @@
 
 /* Image */
 #hero img {
-  max-width: 250px;
+  max-width: 650px;
   border: 4px solid #007bff;
-  border-radius: 34%;
+  border-radius: 4%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
+
 @media (max-width: 768px) {
   #hero {
     text-align: center;
@@ -53,4 +56,18 @@
   #hero img {
     margin-top: 20px;
   }
+}
+.typewriter {
+  border-right: 2px solid #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  font-weight: bold;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% { border-color: transparent; }
+  50% { border-color: white; }
+  100% { border-color: transparent; }
 }

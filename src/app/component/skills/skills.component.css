@@ -1,8 +1,6 @@
 skills {
-  background-color: #cbd3db;
 }
 #skills {
-  background-color: #f8f9fa;
 }
 .card {
   border: none;
@@ -10,4 +8,39 @@ skills {
 }
 .card:hover {
   transform: translateY(-5px);
+}
+.container{
+  margin-top: 55px;
+
+}
+#skills {
+  
+  padding-top: 115px;
+  padding-bottom: 120px;
+  margin-top: 3%;
+  
+
+}
+
+
+#skills h2 {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+/* Skill Cards */
+.skill-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  border: none;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.skill-card .card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
 }
