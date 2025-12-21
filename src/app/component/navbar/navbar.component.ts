@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  isMenuCollapsed = true;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleMenu() {
+    this.isMenuCollapsed = !this.isMenuCollapsed;
+  }
+
+  closeMenu() {
+    this.isMenuCollapsed = true;
   }
 
 }

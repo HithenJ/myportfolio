@@ -1,20 +1,89 @@
-<section class="container py-5" id="hero">
-  <div class="row align-items-center">
-    <div class="col-md-6 text-center text-md-start">
-      <h1 class="display-4 fw-bold">Hi, Im Hithen Jessu</h1>
+<section class="hero-section" id="hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-100">
+      <!-- Left Content -->
+      <div class="col-lg-6 col-md-12 hero-content">
+        <div class="hero-text-wrapper">
+          <div class="greeting-badge">
+            <span class="wave"></span>
+            <span>Hello, I'm</span>
+          </div>
 
-<p class="lead">
-  I'm into
-  <br>
-   <span class="typewriter">{{ displayText }}</span>
-</p>
+          <h1 class="hero-title">
+            Hithen Jessu
+          </h1>
 
+          <div class="hero-subtitle">
+            <span class="subtitle-text">I'm into</span>
+            <div class="typewriter-container">
+              <span class="typewriter">{{ displayText }}</span>
+            </div>
+          </div>
 
-      <p>I love building clean, modern web apps with Angular.</p>
-      <a href="/assets/Hithen_J_Resume.pdf" download class="btn btn-primary mt-3">Download Resume</a>
+          <p class="hero-description">
+            Passionate about crafting beautiful, responsive, and user-friendly web applications
+            using modern technologies like Angular, TypeScript, and Bootstrap.
+          </p>
+
+          <div class="hero-actions">
+            <a href="/assets/Hithen_J__resume.pdf" target="_blank" rel="noopener noreferrer"
+              class="btn btn-primary btn-lg">
+              <span>View Resume</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                <path
+                  d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+              </svg>
+            </a>
+            <a href="/assets/Hithen_J__resume.pdf" download class="btn btn-secondary btn-lg">
+              <span>Download</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                <path
+                  d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero-social">
+            <a href="mailto:hithenjessu@gmail.com" class="social-link" title="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383ZM-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+              </svg>
+            </a>
+            <a href="tel:7842923783" class="social-link" title="Phone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Image -->
+      <div class="col-lg-6 col-md-12 hero-image-wrapper">
+        <div class="hero-image-container">
+          <div class="image-backdrop"></div>
+          <img src="/assets/lb.jpg" alt="Hithen Jessu - Full Stack Developer" class="hero-image">
+          <div class="image-decoration decoration-1"></div>
+          <div class="image-decoration decoration-2"></div>
+        </div>
+      </div>
     </div>
-    <div class="col-md-6 text-center mt-4 mt-md-0">
-      <img src="/assets/lb.jpg" alt="Profile" class="border border-primary">
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <div class="arrow">
+      <span></span>
+      <span></span>
     </div>
   </div>
 </section>

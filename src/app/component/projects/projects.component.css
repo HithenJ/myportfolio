@@ -1,28 +1,212 @@
-#projects {
-  background-color: transparent;
-  padding-top: 120px;  /* reduced spacing */
-  padding-bottom: 150px;
-  border-radius: 10px;
-  margin-top: 50px;
-}
-section{
-  padding-top: 150px;
-}
-#projects h2 {
-  font-size: 2rem;
-  font-weight: 700;
+/* ========================================
+   PROJECTS SECTION - MODERN DESIGN
+   ======================================== */
+
+.projects-section {
+  padding: var(--spacing-xl) 0;
+  position: relative;
 }
 
 /* Project Cards */
 .project-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: none;
-  border-radius: 10px;
-  background-color: #1e1e1e;
-  color: #fff;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  height: 100%;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-gradient);
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  background: var(--bg-card-hover);
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl), var(--shadow-glow);
+  border-color: rgba(102, 126, 234, 0.4);
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Project Icon */
+.project-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-gradient);
+  border-radius: 14px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transition: all var(--transition-base);
+}
+
+.project-icon svg {
+  color: white;
+}
+
+.project-card:hover .project-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* Project Title */
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  transition: color var(--transition-base);
+}
+
+.project-card:hover .project-title {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Project Description */
+.project-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Project Tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  transition: all var(--transition-base);
+}
+
+.tag:hover {
+  background: var(--primary-gradient);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+/* Project Footer */
+.project-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-note {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+  font-style: italic;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.project-link:hover {
+  color: var(--secondary-color);
+  transform: translateX(5px);
+}
+
+/* Animation */
+@keyframes projectFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-card {
+  animation: projectFadeIn 0.6s ease-out;
+}
+
+.project-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.project-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.project-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .project-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    padding: 2rem;
+  }
+
+  .project-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .project-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .project-title {
+    font-size: 1.3rem;
+  }
+
+  .project-description {
+    font-size: 0.95rem;
+  }
 }
