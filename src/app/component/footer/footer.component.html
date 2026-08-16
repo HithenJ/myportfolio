@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a class="footer-brand" routerLink="/" fragment="hero">
+      <span class="brand-icon">{{ profile.initials }}</span>
+      <span>{{ profile.name }}</span>
+    </a>
+    <p class="footer-copy">© {{ year }} {{ profile.name }}. Built with Angular.</p>
+    <div class="footer-socials">
+      <a *ngFor="let link of socials" [href]="link.href" class="footer-social" [attr.aria-label]="link.label"
+        target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+    </div>
+  </div>
+</footer>
