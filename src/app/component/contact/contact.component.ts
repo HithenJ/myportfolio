@@ -1,26 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { profile } from '../../data/portfolio.data';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent   {
- submitted = false;
+export class ContactComponent {
+  profile = profile;
+  submitted = false;
   sending = false;
+  error = '';
+  copied: 'email' | 'phone' | null = null;
 
-  onSubmit(event: Event) {
+  async copy(kind: 'email' | 'phone'): Promise<void> {
+    const value = kind === 'email' ? this.profile.email : this.profile.phoneDisplay;
+    try {
+      await navigator.clipboard.writeText(value);
+      this.copied = kind;
+      setTimeout(() => {
+        this.copied = null;
+      }, 1800);
+    } catch {
+      this.error = 'Could not copy. Please select the text instead.';
+    }
+  }
+
+  onSubmit(event: Event): void {
     event.preventDefault();
-
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
 
     this.sending = true;
+    this.error = '';
 
-    fetch('https://formsubmit.co/hithenjessu@gmail.com', {
+    fetch('https://formsubmit.co/' + this.profile.email, {
       method: 'POST',
       body: formData
-    }).then(response => {
+    }).then((response) => {
       if (response.ok) {
         this.submitted = true;
         form.reset();
@@ -28,11 +45,11 @@ export class ContactComponent   {
           this.submitted = false;
         }, 5000);
       } else {
-        alert('Something went wrong. Please try again.');
+        this.error = 'Something went wrong. Please try again or email me directly.';
       }
       this.sending = false;
     }).catch(() => {
-      alert('Failed to send message. Please check your connection.');
+      this.error = 'Failed to send. Check your connection, or email me directly.';
       this.sending = false;
     });
   }

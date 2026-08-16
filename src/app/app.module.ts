@@ -11,6 +11,10 @@ import { AboutComponent } from './component/about/about.component';
 import { SkillsComponent } from './component/skills/skills.component';
 import { ProjectsComponent } from './component/projects/projects.component';
 import { ContactComponent } from './component/contact/contact.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { LegacyRedirectComponent } from './pages/legacy-redirect.component';
+import { RevealDirective } from './directives/reveal.directive';
+import { MagneticDirective } from './directives/magnetic.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { ContactComponent } from './component/contact/contact.component';
     AboutComponent,
     SkillsComponent,
     ProjectsComponent,
-    ContactComponent
+    ContactComponent,
+    FooterComponent,
+    LegacyRedirectComponent,
+    RevealDirective,
+    MagneticDirective
   ],
   imports: [
     BrowserModule,

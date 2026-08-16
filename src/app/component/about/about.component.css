@@ -1,261 +1,126 @@
 .about-section {
   padding: var(--spacing-xl) 0;
-  position: relative;
 }
 
-.section-header {
-  margin-bottom: 4rem;
+.bento {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 1rem;
 }
 
-.section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-  position: relative;
-  display: inline-block;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background: var(--primary-gradient);
-  border-radius: 2px;
-}
-
-.section-subtitle {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  margin-top: 1.5rem;
-}
-
-.info-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.bento-cell {
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 2rem;
-  height: 100%;
-  transition: all var(--transition-base);
-  position: relative;
-  overflow: hidden;
+  padding: 1.6rem;
 }
 
-.info-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--primary-gradient);
-  transform: scaleX(0);
-  transition: transform var(--transition-base);
+.bento-cell h3 {
+  margin-bottom: 0.85rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
 }
 
-.info-card:hover {
-  background: var(--bg-card-hover);
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-xl), var(--shadow-glow);
-  border-color: rgba(102, 126, 234, 0.3);
+.bento-cell p {
+  margin-bottom: 0.35rem;
 }
 
-.info-card:hover::before {
-  transform: scaleX(1);
+.bento-bio {
+  grid-row: span 2;
 }
 
-.card-icon {
-  width: 60px;
-  height: 60px;
+.bento-bio p {
+  font-size: 1.12rem;
+  line-height: 1.8;
+}
+
+.bento-edu {
+  grid-column: 1 / -1;
+}
+
+.stack-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: var(--primary-gradient);
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  gap: 0.6rem;
 }
 
-.card-icon svg {
-  color: white;
-}
-
-.card-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
-}
-
-.info-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.info-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 0.85rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.info-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.info-label {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-muted);
+.now {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: #111108;
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 0.12rem 0.5rem;
+  font-weight: 700;
 }
 
-.info-value {
-  font-size: 1.05rem;
-  color: var(--text-primary);
-  font-weight: 500;
-  text-decoration: none;
-  transition: color var(--transition-fast);
+.muted {
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
-a.info-value:hover {
-  color: var(--primary-color);
-}
-
-.bio-text {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin: 0;
-}
-
-.education-card {
-  min-height: auto;
-}
-
-.timeline-horizontal {
+.edu-list {
+  list-style: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  margin-top: 1.5rem;
-  position: relative;
-}
-
-.timeline-horizontal::before {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  right: 6px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  z-index: 0;
-}
-
-.tl-item {
-  position: relative;
-  padding-right: 1.5rem;
-}
-
-.tl-item:last-child {
-  padding-right: 0;
-}
-
-.tl-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--primary-gradient);
-  border: 2px solid var(--bg-dark);
-  margin-bottom: 1rem;
-  position: relative;
-  z-index: 1;
-  transition: transform var(--transition-base);
-}
-
-.tl-item:hover .tl-dot {
-  transform: scale(1.3);
-  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.25);
-}
-
-.active-marker {
-  animation: pulse-marker 2s ease-in-out infinite;
-}
-
-@keyframes pulse-marker {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.3);
-  }
-  50% {
-    transform: scale(1.2);
-    box-shadow: 0 0 0 7px rgba(102, 126, 234, 0.15);
-  }
-}
-
-.timeline-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.4rem;
-  line-height: 1.4;
-}
-
-.timeline-institution {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.25rem;
-}
-
-.timeline-period {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  gap: 1rem;
   margin: 0;
+  padding: 0;
 }
 
-.timeline-grade {
-  color: var(--primary-color);
-  font-weight: 600;
+.edu-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-top: 0.7rem;
+  border-top: 2px solid var(--accent);
 }
 
-.timeline-status {
-  color: #10b981;
-  font-weight: 600;
-  animation: pulse-text 2s ease-in-out infinite;
+.edu-list strong {
+  font-size: 0.95rem;
 }
 
-@keyframes pulse-text {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+.chips {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.chip {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+a.chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 @media (max-width: 991px) {
-  .timeline-horizontal {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+  .bento {
+    grid-template-columns: 1fr;
   }
 
-  .timeline-horizontal::before {
-    display: none;
+  .bento-bio {
+    grid-row: auto;
+  }
+
+  .edu-list {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 576px) {
-  .timeline-horizontal {
+  .edu-list {
     grid-template-columns: 1fr;
-  }
-
-  .section-title {
-    font-size: 2rem;
   }
 }
