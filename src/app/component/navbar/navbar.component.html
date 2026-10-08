@@ -28,12 +28,12 @@
       <a href="#contact" (click)="$event.preventDefault(); scrollTo('contact')" class="btn-2026 btn-primary-2026 btn-sm">
         <span>Get in Touch</span>
       </a>
-
-      <!-- Mobile Hamburger Button -->
-      <button class="mobile-menu-btn" (click)="toggleMenu()" [attr.aria-expanded]="!isMenuCollapsed" aria-label="Toggle menu">
-        <span class="bar" [class.open]="!isMenuCollapsed"></span>
-      </button>
     </div>
+
+    <!-- Mobile Hamburger Button -->
+    <button class="mobile-menu-btn" (click)="toggleMenu()" [attr.aria-expanded]="!isMenuCollapsed" aria-label="Toggle menu">
+      <span class="bar" [class.open]="!isMenuCollapsed"></span>
+    </button>
   </div>
 </header>
 

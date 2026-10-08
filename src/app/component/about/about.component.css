@@ -252,13 +252,120 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
+  .card-2026 {
+    padding: 1.5rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .bio-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .avatar-wrapper {
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+  }
+
+  .bio-name {
+    font-size: 1.2rem;
+  }
+
+  .bio-role {
+    font-size: 0.75rem;
+  }
+
+  .bio-text {
+    font-size: 0.95rem;
+  }
+
   .metrics-grid {
     grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .metric-card {
+    padding: 0.7rem;
+  }
+
+  .metric-val {
+    font-size: 0.9rem;
+  }
+
+  .metric-lbl {
+    font-size: 0.7rem;
+  }
+
+  .timeline-tabs {
+    padding: 0.3rem;
+  }
+
+  .timeline-tab {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .item-title {
+    font-size: 1rem;
+  }
+
+  .item-institution {
+    font-size: 0.75rem;
+  }
+
+  .item-period {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .edu-grade-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .current-badge {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-2026 {
+    padding: 1.25rem;
+  }
+
+  .section-badge {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .bio-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
   }
 
   .timeline-head {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .timeline-tab {
+    font-size: 0.75rem;
+    padding: 0.45rem 0.7rem;
   }
 }

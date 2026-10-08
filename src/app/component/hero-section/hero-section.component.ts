@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { profile, socials } from '../../data/portfolio.data';
 
 @Component({
@@ -13,6 +13,20 @@ export class HeroSectionComponent implements OnInit, OnDestroy {
   activeRole = '';
   activeTab: 'config' | 'metrics' | 'stack' = 'config';
   copiedEmail = false;
+  isMobile = false;
+
+  constructor() {
+    this.checkMobile();
+  }
+
+  private checkMobile(): void {
+    this.isMobile = window.innerWidth <= 576;
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    this.checkMobile();
+  }
 
   private roleIndex = 0;
   private charIndex = 0;

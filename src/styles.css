@@ -68,7 +68,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 90px;
   overflow-x: hidden;
   background-color: var(--bg-canvas);
   color-scheme: light;
@@ -355,8 +355,72 @@ section {
 }
 
 @media (max-width: 768px) {
+  html {
+    scroll-padding-top: 80px;
+  }
+
   section {
     padding: 4.5rem 0;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-badge {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .card-2026 {
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+  }
+
+  .btn-2026 {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    scroll-padding-top: 75px;
+  }
+
+  section {
+    padding: 3.5rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .card-2026 {
+    padding: 1.25rem;
+  }
+
+  .btn-2026 {
+    padding: 0.7rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.65rem;
+  }
+
+  .pulse-indicator {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
   }
 }
 

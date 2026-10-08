@@ -230,8 +230,85 @@
   }
 }
 
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 4.5rem 0;
+  }
+
+  .hub-title {
+    font-size: 1.3rem;
+  }
+
+  .channel-card {
+    padding: 0.85rem 1rem;
+  }
+
+  .channel-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .channel-value {
+    font-size: 0.9rem;
+  }
+
+  .channel-copy-btn {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .form-title {
+    font-size: 1.3rem;
+  }
+
+  .form-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .form-alert {
+    font-size: 0.85rem;
+    padding: 0.85rem;
+  }
+
+  .form-control-2026 {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .submit-btn {
+    padding: 0.85rem;
+  }
+}
+
 @media (max-width: 576px) {
   .form-group-row {
     grid-template-columns: 1fr;
+  }
+
+  .channel-card {
+    padding: 0.75rem 0.85rem;
+  }
+
+  .channel-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .channel-label {
+    font-size: 0.7rem;
+  }
+
+  .channel-value {
+    font-size: 0.85rem;
+  }
+
+  .social-btns-grid {
+    flex-wrap: wrap;
+  }
+
+  .social-btns-grid .btn-2026 {
+    min-width: calc(50% - 0.4rem);
   }
 }

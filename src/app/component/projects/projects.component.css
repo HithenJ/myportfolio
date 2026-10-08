@@ -356,6 +356,93 @@
   }
 }
 
+@media (max-width: 768px) {
+  .case-studies-wrapper {
+    gap: 3rem;
+  }
+
+  .case-study-card,
+  .case-study-card.reverse-layout {
+    padding: 1.75rem;
+    gap: 2.5rem;
+  }
+
+  .case-meta {
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .case-index {
+    font-size: 0.75rem;
+  }
+
+  .case-featured-tag {
+    font-size: 0.68rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .case-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .case-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .case-description {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-highlights-box {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .box-label {
+    font-size: 0.75rem;
+  }
+
+  .contribution-text {
+    font-size: 0.85rem;
+  }
+
+  .highlights-list li {
+    font-size: 0.82rem;
+  }
+
+  .case-tags-row {
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-actions {
+    gap: 0.8rem;
+  }
+
+  .browser-window {
+    border-radius: var(--radius-md);
+  }
+
+  .browser-bar {
+    padding: 0.5rem 0.85rem;
+  }
+
+  .browser-body {
+    min-height: 220px;
+    padding: 1.5rem;
+  }
+
+  .ui-title {
+    font-size: 0.75rem;
+  }
+
+  .ui-headline {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 576px) {
   .case-studies-wrapper {
     gap: 2.5rem;
@@ -363,25 +450,100 @@
 
   .case-study-card,
   .case-study-card.reverse-layout {
-    padding: 1.5rem;
-    gap: 2rem;
+    padding: 1.25rem;
+    gap: 1.5rem;
+    border-radius: var(--radius-md);
+  }
+
+  .case-meta {
+    flex-wrap: wrap;
   }
 
   .case-title {
-    font-size: clamp(1.4rem, 7vw, 1.8rem);
+    font-size: clamp(1.3rem, 6vw, 1.6rem);
   }
 
-  .browser-body {
-    min-height: 200px;
-    padding: 1.2rem;
+  .case-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .case-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .case-highlights-box {
+    padding: 0.85rem;
+  }
+
+  .contribution-text {
+    font-size: 0.82rem;
+  }
+
+  .highlights-list li {
+    font-size: 0.78rem;
+  }
+
+  .case-tags-row {
+    gap: 0.35rem;
   }
 
   .case-actions {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.75rem;
   }
 
   .case-actions .btn-2026 {
     justify-content: center;
+  }
+
+  .browser-bar {
+    padding: 0.4rem 0.7rem;
+  }
+
+  .browser-dots {
+    gap: 0.25rem;
+  }
+
+  .b-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .browser-address-bar {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .browser-body {
+    min-height: 180px;
+    padding: 1rem;
+  }
+
+  .ui-topbar {
+    padding-bottom: 0.6rem;
+  }
+
+  .ui-headline {
+    font-size: 1rem;
+  }
+
+  .mini-tag {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.4rem;
+  }
+
+  .sk-row {
+    padding: 0.5rem;
+  }
+
+  .sk-avatar {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sk-line {
+    height: 6px;
   }
 }
