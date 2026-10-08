@@ -1,0 +1,64 @@
+<section id="ai-workflow" class="ai-workflow-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header" appReveal>
+      <div class="section-badge">
+        <span class="badge-num">04</span> // AI-ASSISTED DEVELOPMENT
+      </div>
+      <h2 class="section-title">AI Velocity Powered by Human Engineering</h2>
+      <p class="section-subtitle">How I leverage modern AI tools to multiply development speed while maintaining strict architectural rigor and code quality.</p>
+    </div>
+
+    <!-- Overview Banner -->
+    <div class="ai-manifesto-card card-2026" appReveal>
+      <div class="manifesto-content">
+        <div class="manifesto-badge">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>Modern Engineering Methodology</span>
+        </div>
+        <h3 class="manifesto-title">Speed Meets Precision</h3>
+        <p class="manifesto-text">
+          As a modern web developer, I embrace AI assistants (Copilot, Cursor, and LLMs) to handle repetitive scaffolding, type generation, and initial refactoring. This allows me to focus maximum energy on <strong>component architecture, performance tuning, UX details, and reliable software delivery</strong>.
+        </p>
+      </div>
+      <div class="manifesto-stat">
+        <span class="stat-number">3x</span>
+        <span class="stat-label">Velocity Multiplier for Scaffolding & Boilerplates</span>
+      </div>
+    </div>
+
+    <!-- Pillars Grid -->
+    <div class="pillars-grid" appReveal>
+      <div *ngFor="let pillar of pillars; let idx = index" class="pillar-card card-2026">
+        <div class="pillar-header">
+          <div class="pillar-icon">
+            <i [class]="pillar.icon"></i>
+          </div>
+          <span class="pillar-tagline">{{ pillar.tagline }}</span>
+        </div>
+
+        <h3 class="pillar-title">0{{ idx + 1 }}. {{ pillar.title }}</h3>
+        <p class="pillar-desc">{{ pillar.description }}</p>
+
+        <div *ngIf="pillar.codeSnippet" class="pillar-code-box">
+          <div class="code-box-header">
+            <span class="dot-small"></span>
+            <span class="code-title">example_pattern.ts</span>
+          </div>
+          <pre class="code-body"><code>{{ pillar.codeSnippet }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary Guarantee Callout -->
+    <div class="guarantee-box card-2026" appReveal>
+      <div class="guarantee-icon">
+        <i class="fa-solid fa-shield-check"></i>
+      </div>
+      <div class="guarantee-text">
+        <h4>The Human Engineering Commitment</h4>
+        <p>AI generates initial code proposals. I personally architect every component structure, manage application state, audit for edge cases, verify WCAG accessibility, and guarantee final production reliability.</p>
+      </div>
+    </div>
+  </div>
+</section>

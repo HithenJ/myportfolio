@@ -1,0 +1,222 @@
+.ai-workflow-section {
+  position: relative;
+  background: var(--surface-white);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.ai-manifesto-card {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 2.5rem;
+  align-items: center;
+  background: var(--bg-subtle);
+  border-color: var(--border-medium);
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.manifesto-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-cobalt);
+  background: var(--accent-cobalt-light);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.manifesto-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-main);
+}
+
+.manifesto-text {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.manifesto-text strong {
+  color: var(--text-main);
+}
+
+.manifesto-stat {
+  background: var(--surface-white);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3.5rem;
+  color: var(--text-main);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Pillars Grid */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  margin-bottom: 3rem;
+}
+
+.pillar-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--surface-white);
+  border: 1px solid var(--border-subtle);
+}
+
+.pillar-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.pillar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.pillar-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--text-main);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.pillar-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-emerald);
+  background: var(--accent-emerald-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.pillar-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-main);
+}
+
+.pillar-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.pillar-code-box {
+  background: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  color: #f8fafc;
+}
+
+.code-box-header {
+  background: #090d16;
+  padding: 0.35rem 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dot-small {
+  width: 6px;
+  height: 6px;
+  background-color: #38bdf8;
+  border-radius: 50%;
+}
+
+.code-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.code-body {
+  padding: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #38bdf8;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+/* Guarantee Commitment Callout */
+.guarantee-box {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--accent-emerald-light);
+  border-color: rgba(5, 150, 105, 0.3);
+}
+
+.guarantee-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+}
+
+.guarantee-text h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-main);
+}
+
+.guarantee-text p {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .ai-manifesto-card {
+    grid-template-columns: 1fr;
+  }
+
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}
