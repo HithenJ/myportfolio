@@ -1,48 +1,101 @@
-<section class="about-section" id="about">
+<section id="about" class="about-section">
   <div class="container">
+    <!-- Section Header -->
     <div class="section-header" appReveal>
-      <span class="section-kicker">About</span>
-      <h2 class="section-title">A bit of context</h2>
-      <p class="section-subtitle">Work, school, and where to find me</p>
+      <div class="section-badge">
+        <span class="badge-num">01</span> ABOUT & EXPERIENCE
+      </div>
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">A brief overview of my background, education, and career experience.</p>
     </div>
 
-    <div class="bento" appReveal>
-      <article class="bento-cell bento-bio">
-        <h3>About me</h3>
-        <p>{{ profile.bio }}</p>
-      </article>
-
-      <article class="bento-cell">
-        <h3>Experience</h3>
-        <div class="stack-list" *ngFor="let job of experience">
-          <div class="stack-row">
-            <strong>{{ job.title }}</strong>
-            <span class="now" *ngIf="job.current">Now</span>
+    <!-- Main Content Layout -->
+    <div class="about-grid">
+      <!-- Left Column: Bio Narrative -->
+      <div class="about-narrative" appReveal>
+        <div class="bio-card card-2026">
+          <div class="bio-header">
+            <div class="avatar-wrapper">
+              <span class="avatar-initials">HJ</span>
+            </div>
+            <div>
+              <h3 class="bio-name">{{ profile.name }}</h3>
+              <p class="bio-role">Web Developer @ CGXperts</p>
+            </div>
           </div>
-          <p>{{ job.institution }}</p>
-          <p class="muted">{{ job.period }}</p>
-        </div>
-      </article>
 
-      <article class="bento-cell bento-edu">
-        <h3>Education</h3>
-        <ul class="edu-list">
-          <li *ngFor="let item of education">
-            <strong>{{ item.title }}</strong>
-            <span>{{ item.institution }}</span>
-            <span class="muted">{{ item.period }} · {{ item.grade }}</span>
-          </li>
-        </ul>
-      </article>
+          <p class="bio-text">
+            {{ profile.bio }}
+          </p>
 
-      <article class="bento-cell">
-        <h3>Contact</h3>
-        <div class="chips">
-          <a [href]="'mailto:' + profile.email" class="chip">{{ profile.email }}</a>
-          <a [href]="'tel:' + profile.phone" class="chip">{{ profile.phoneDisplay }}</a>
-          <span class="chip">{{ profile.location }}</span>
+          <!-- Core Metric Stat Cards Grid -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <span class="metric-val">CGXperts</span>
+              <span class="metric-lbl">Web Developer</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val">7.62 GPA</span>
+              <span class="metric-lbl">MCA Degree</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val">Angular & TS</span>
+              <span class="metric-lbl">Core Tech</span>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
+
+      <!-- Right Column: Interactive Timeline (Experience vs Education) -->
+      <div class="about-timeline-wrapper" appReveal>
+        <!-- Timeline Navigation Tabs -->
+        <div class="timeline-tabs">
+          <button
+            class="timeline-tab"
+            [class.active]="activeTab === 'experience'"
+            (click)="setTab('experience')"
+          >
+            <i class="fa-solid fa-briefcase"></i> Experience
+          </button>
+          <button
+            class="timeline-tab"
+            [class.active]="activeTab === 'education'"
+            (click)="setTab('education')"
+          >
+            <i class="fa-solid fa-graduation-cap"></i> Education
+          </button>
+        </div>
+
+        <!-- Experience Content Pane -->
+        <div *ngIf="activeTab === 'experience'" class="timeline-pane">
+          <div *ngFor="let item of experience" class="timeline-item card-2026">
+            <div class="timeline-head">
+              <div>
+                <span *ngIf="item.current" class="current-badge">CURRENT ROLE</span>
+                <h4 class="item-title">{{ item.title }}</h4>
+                <span class="item-institution"><i class="fa-solid fa-building"></i> {{ item.institution }}</span>
+              </div>
+              <span class="item-period">{{ item.period }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Content Pane -->
+        <div *ngIf="activeTab === 'education'" class="timeline-pane">
+          <div *ngFor="let edu of education" class="timeline-item card-2026">
+            <div class="timeline-head">
+              <div>
+                <h4 class="item-title">{{ edu.title }}</h4>
+                <span class="item-institution"><i class="fa-solid fa-university"></i> {{ edu.institution }}</span>
+              </div>
+              <div class="edu-grade-badge">
+                <span>{{ edu.grade }}</span>
+              </div>
+            </div>
+            <span class="item-period inline-period">{{ edu.period }}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

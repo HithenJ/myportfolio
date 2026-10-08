@@ -1,28 +1,38 @@
-<section class="skills-section" id="skills">
+<section id="skills" class="skills-section">
   <div class="container">
+    <!-- Section Header -->
     <div class="section-header" appReveal>
-      <span class="section-kicker">Skills</span>
-      <h2 class="section-title">Tools I reach for</h2>
-      <p class="section-subtitle">A mix of frontend, backend, and the boring-but-important bits</p>
+      <div class="section-badge">
+        <span class="badge-num">02</span> SKILLS & TECHNOLOGIES
+      </div>
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-subtitle">Technologies, frameworks, and AI tools I work with to build modern web applications.</p>
     </div>
-  </div>
 
-  <div class="marquee" appReveal>
-    <div class="marquee-track">
-      <span class="marquee-item" *ngFor="let skill of marquee">{{ skill.name }}</span>
+    <!-- Category Filter Bar -->
+    <div class="category-filters" appReveal>
+      <button
+        *ngFor="let cat of categories"
+        class="cat-filter-btn"
+        [class.active]="activeCategory === cat.id"
+        (click)="setCategory(cat.id)"
+      >
+        <span>{{ cat.label }}</span>
+      </button>
     </div>
-    <div class="marquee-track reverse">
-      <span class="marquee-item" *ngFor="let skill of marquee">{{ skill.name }}</span>
-    </div>
-  </div>
 
-  <div class="container">
-    <div class="skill-grid" appReveal>
-      <div class="skill-card" *ngFor="let skill of skills">
-        <div class="skill-icon" [style.background]="skill.accent">
-          <i [class]="skill.iconClass"></i>
+    <!-- Filtered Skill Cards Grid -->
+    <div class="skills-grid" appReveal>
+      <div *ngFor="let skill of filteredSkills" class="skill-card card-2026">
+        <div class="skill-top">
+          <div class="skill-icon-wrapper" [style.color]="skill.accent">
+            <span *ngIf="skill.svg" [innerHTML]="getSafeSvg(skill.svg)" class="svg-icon-span"></span>
+            <i *ngIf="!skill.svg && skill.iconClass" [class]="skill.iconClass"></i>
+          </div>
+          <span *ngIf="skill.category" class="skill-level-badge">{{ skill.category }}</span>
         </div>
-        <h5 class="skill-name">{{ skill.name }}</h5>
+
+        <h3 class="skill-name">{{ skill.name }}</h3>
       </div>
     </div>
   </div>

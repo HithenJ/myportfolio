@@ -1,101 +1,138 @@
 .skills-section {
-  padding: var(--spacing-xl) 0;
-  overflow: hidden;
+  position: relative;
 }
 
-.marquee {
+.category-filters {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 0.6rem;
   margin-bottom: 2.5rem;
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  flex-wrap: wrap;
 }
 
-.marquee-track {
-  display: flex;
-  gap: 0.75rem;
-  width: max-content;
-  animation: marquee 28s linear infinite;
-}
-
-.marquee-track.reverse {
-  animation-direction: reverse;
-  animation-duration: 34s;
-}
-
-.marquee-item {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.15rem;
-  letter-spacing: -0.03em;
+.cat-filter-btn {
+  background: var(--surface-white);
+  border: 1px solid var(--border-medium);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
   padding: 0.55rem 1.1rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: var(--text);
-  background: var(--surface);
-  white-space: nowrap;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
 }
 
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+.cat-filter-btn:hover {
+  color: var(--text-main);
+  border-color: var(--text-main);
+  background: var(--bg-subtle);
 }
 
-.skill-grid {
+.cat-filter-btn.active {
+  background: var(--text-main);
+  color: #ffffff;
+  border-color: var(--text-main);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.skills-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.85rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
 .skill-card {
-  padding: 1.25rem 0.75rem;
-  text-align: center;
-  min-height: 140px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  min-height: 200px;
+  background: var(--surface-white);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
 }
 
-.skill-icon {
-  width: 52px;
-  height: 52px;
+.skill-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.skill-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.skill-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
-  margin-bottom: 0.7rem;
-  color: #fff;
+  font-size: 1.6rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-subtle);
 }
 
-.skill-icon i {
-  font-size: 1.4rem;
+.svg-icon-span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
 }
 
-.skill-name {
-  font-size: 0.95rem;
-  margin: 0;
-  font-family: var(--font-body);
+.svg-icon-span svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.skill-level-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-emerald);
+  background: var(--accent-emerald-light);
+  border: 1px solid rgba(5, 150, 105, 0.25);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
   font-weight: 600;
 }
 
-@media (max-width: 991px) {
-  .skill-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.skill-name {
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-main);
+}
+
+.skill-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  flex: 1;
+}
+
+.skill-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 0.8rem;
+  margin-top: auto;
+}
+
+.skill-category-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 @media (max-width: 576px) {
-  .skill-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 }

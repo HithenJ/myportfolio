@@ -10,4 +10,8 @@ export class FooterComponent {
   profile = profile;
   socials = socials;
   year = new Date().getFullYear();
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

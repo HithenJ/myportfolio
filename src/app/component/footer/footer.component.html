@@ -1,13 +1,30 @@
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <a class="footer-brand" routerLink="/" fragment="hero">
-      <span class="brand-icon">{{ profile.initials }}</span>
-      <span>{{ profile.name }}</span>
-    </a>
-    <p class="footer-copy">© {{ year }} {{ profile.name }}. Built with Angular.</p>
-    <div class="footer-socials">
-      <a *ngFor="let link of socials" [href]="link.href" class="footer-social" [attr.aria-label]="link.label"
-        target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+<footer class="footer-2026">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-box">HJ</div>
+        <div>
+          <span class="footer-name">{{ profile.name }}</span>
+          <span class="footer-role">Web Developer & Frontend Engineer • {{ profile.location }}</span>
+        </div>
+      </div>
+
+      <button (click)="scrollToTop()" class="btn-2026 btn-secondary-2026 scroll-top-btn" aria-label="Back to Top">
+        <span>Back to Top</span>
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        © {{ year }} {{ profile.name }}. Engineered with Angular 14, TypeScript & AI Velocity.
+      </p>
+
+      <div class="footer-socials">
+        <a *ngFor="let s of socials" [href]="s.href" target="_blank" class="footer-social-link">
+          {{ s.label }}
+        </a>
+      </div>
     </div>
   </div>
 </footer>

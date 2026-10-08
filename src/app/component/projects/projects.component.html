@@ -1,34 +1,85 @@
-<section class="projects-section" id="projects">
+<section id="projects" class="projects-section">
   <div class="container">
+    <!-- Section Header -->
     <div class="section-header" appReveal>
-      <span class="section-kicker">Work</span>
-      <h2 class="section-title">Selected projects</h2>
-      <p class="section-subtitle">Things I've shipped — more screenshots coming soon</p>
+      <div class="section-badge">
+        <span class="badge-num">03</span> PROJECTS
+      </div>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">A showcase of web applications I have built.</p>
     </div>
 
-    <div class="project-list">
-      <article class="project-card" *ngFor="let project of projects; let i = index" appReveal>
-        <div class="project-meta">
-          <span class="project-index">{{ indexLabel(i) }}</span>
-          <div class="project-visual" *ngIf="project.image; else placeholder">
-            <img [src]="project.image" [alt]="project.title">
+    <!-- Case Studies Showcase Container -->
+    <div class="case-studies-wrapper">
+      <article
+        *ngFor="let item of projects; let i = index; let isOdd = odd"
+        class="case-study-card"
+        [class.reverse-layout]="isOdd"
+        appReveal
+      >
+        <!-- Left/Right: Editorial Content -->
+        <div class="case-info">
+          <div class="case-meta">
+            <span class="case-index">0{{ i + 1 }} // PROJECT</span>
           </div>
-          <ng-template #placeholder>
-            <div class="project-visual placeholder">
-              <span>{{ project.title }}</span>
-            </div>
-          </ng-template>
+
+          <h3 class="case-title">{{ item.title }}</h3>
+          <p class="case-description">{{ item.description }}</p>
+
+          <!-- Technology Pills -->
+          <div class="case-tags-row">
+            <span *ngFor="let tag of item.tags" class="tech-tag">
+              {{ tag }}
+            </span>
+          </div>
+
+          <!-- Action Buttons & Links -->
+          <div class="case-actions">
+            <button *ngIf="item.demoNote" (click)="showDemoContactAlert()" class="btn-2026 btn-primary-2026">
+              <i class="fa-solid fa-envelope"></i> Request Demo
+            </button>
+
+            <a
+              *ngFor="let link of item.links"
+              [href]="link.href"
+              target="_blank"
+              class="btn-2026 btn-secondary-2026"
+            >
+              <span>{{ link.label }}</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
         </div>
-        <div class="project-body">
-          <h3 class="project-title">{{ project.title }}</h3>
-          <p class="project-description">{{ project.description }}</p>
-          <div class="project-tags">
-            <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
-          </div>
-          <div class="project-footer">
-            <a *ngIf="project.demoNote" routerLink="/" fragment="contact" class="btn btn-secondary">Request a demo</a>
-            <a *ngFor="let link of project.links" [href]="link.href" class="project-link"
-              [attr.target]="link.external ? '_blank' : null" rel="noopener noreferrer">{{ link.label }}</a>
+
+        <!-- Right/Left: Visual Browser Window Preview Frame -->
+        <div class="case-visual">
+          <div class="browser-window">
+            <div class="browser-bar">
+              <div class="browser-dots">
+                <span class="b-dot b-close"></span>
+                <span class="b-dot b-min"></span>
+                <span class="b-dot b-max"></span>
+              </div>
+              <div class="browser-address-bar">
+                <i class="fa-solid fa-globe"></i> {{ item.title }}
+              </div>
+            </div>
+
+            <!-- Custom Mockup View Area per project -->
+            <div class="browser-body">
+              <div class="mockup-ui">
+                <div class="ui-topbar">
+                  <span class="ui-title">{{ item.title }}</span>
+                  <span class="ui-badge">Angular</span>
+                </div>
+                <div class="ui-hero-preview">
+                  <span class="ui-headline">{{ item.title }} Showcase</span>
+                  <div class="ui-pills">
+                    <span *ngFor="let tag of item.tags" class="mini-tag">{{ tag }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </article>

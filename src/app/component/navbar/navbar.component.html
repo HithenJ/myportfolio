@@ -1,26 +1,70 @@
-<nav class="navbar navbar-expand-lg fixed-top modern-navbar" [class.scrolled]="isScrolled">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/" fragment="hero" (click)="closeMenu()">
-      <span class="brand-icon">{{ profile.initials }}</span>
-      <span class="brand-text">{{ profile.name }}</span>
+<header class="header-nav" [class.scrolled]="isScrolled">
+  <div class="container nav-container">
+    <!-- Brand Logo & Name -->
+    <a href="#hero" (click)="$event.preventDefault(); scrollTo('hero')" class="brand">
+      <span class="brand-avatar">HJ</span>
+      <span class="brand-name">Hithen Jessu</span>
     </a>
 
-    <button class="navbar-toggler" type="button" (click)="toggleMenu()" [attr.aria-expanded]="!isMenuCollapsed"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- Desktop Nav Links -->
+    <nav class="nav-links">
+      <a
+        *ngFor="let link of links"
+        href="#{{ link.id }}"
+        (click)="$event.preventDefault(); scrollTo(link.id)"
+        class="nav-item"
+        [class.active]="activeSection === link.id"
+      >
+        {{ link.label }}
+      </a>
+    </nav>
 
-    <div class="navbar-collapse" [ngClass]="{'collapse': isMenuCollapsed}">
-      <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item" *ngFor="let link of links">
-          <a class="nav-link" routerLink="/" [fragment]="link.id" [class.active]="activeSection === link.id"
-            (click)="closeMenu()">{{ link.label }}</a>
-        </li>
-        <li class="nav-item nav-cta">
-          <span class="available-pill" *ngIf="profile.available">Available</span>
-          <a class="btn btn-primary nav-hire" routerLink="/" fragment="contact" appMagnetic (click)="closeMenu()">Hire me</a>
-        </li>
-      </ul>
+    <!-- Header Actions -->
+    <div class="nav-cta-group">
+      <a [href]="profile.resumePath" target="_blank" class="btn-2026 btn-secondary-2026 btn-sm">
+        <i class="fa-solid fa-arrow-down-to-line"></i>
+        <span>Resume</span>
+      </a>
+      <a href="#contact" (click)="$event.preventDefault(); scrollTo('contact')" class="btn-2026 btn-primary-2026 btn-sm">
+        <span>Get in Touch</span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-menu-btn" (click)="toggleMenu()" [attr.aria-expanded]="!isMenuCollapsed" aria-label="Toggle menu">
+        <span class="bar" [class.open]="!isMenuCollapsed"></span>
+      </button>
     </div>
   </div>
-</nav>
+</header>
+
+<!-- Mobile Navigation Overlay -->
+<div class="mobile-nav-overlay" [class.show]="!isMenuCollapsed">
+  <div class="mobile-backdrop" (click)="closeMenu()"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-header">
+      <span class="mobile-brand">Hithen Jessu</span>
+      <button class="close-btn" (click)="closeMenu()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="mobile-links">
+      <a
+        *ngFor="let link of links"
+        href="#{{ link.id }}"
+        (click)="$event.preventDefault(); scrollTo(link.id)"
+        class="mobile-link"
+        [class.active]="activeSection === link.id"
+      >
+        <span>{{ link.label }}</span>
+        <i class="fa-solid fa-chevron-right"></i>
+      </a>
+    </div>
+
+    <div class="mobile-footer">
+      <a [href]="profile.resumePath" target="_blank" class="btn-2026 btn-primary-2026 w-100">
+        <i class="fa-solid fa-file-pdf"></i> Download Resume
+      </a>
+    </div>
+  </div>
+</div>

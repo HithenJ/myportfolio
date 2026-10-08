@@ -9,9 +9,12 @@ import { profile, socials } from '../../data/portfolio.data';
 export class HeroSectionComponent implements OnInit, OnDestroy {
   profile = profile;
   socials = socials;
-  displayText = '';
 
-  private wordIndex = 0;
+  activeRole = '';
+  activeTab: 'config' | 'metrics' | 'stack' = 'config';
+  copiedEmail = false;
+
+  private roleIndex = 0;
   private charIndex = 0;
   private isDeleting = false;
   private timeoutId?: ReturnType<typeof setTimeout>;
@@ -26,26 +29,44 @@ export class HeroSectionComponent implements OnInit, OnDestroy {
     }
   }
 
-  private typeEffect(): void {
-    const currentWord = this.profile.roles[this.wordIndex];
+  setTab(tab: 'config' | 'metrics' | 'stack'): void {
+    this.activeTab = tab;
+  }
 
-    if (!this.isDeleting && this.charIndex <= currentWord.length) {
-      this.displayText = currentWord.substring(0, this.charIndex++);
+  copyEmail(): void {
+    navigator.clipboard.writeText(this.profile.email).then(() => {
+      this.copiedEmail = true;
+      setTimeout(() => (this.copiedEmail = false), 2500);
+    });
+  }
+
+  scrollTo(id: string): void {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  private typeEffect(): void {
+    const currentRole = this.profile.roles[this.roleIndex];
+
+    if (!this.isDeleting && this.charIndex <= currentRole.length) {
+      this.activeRole = currentRole.substring(0, this.charIndex++);
     } else if (this.isDeleting && this.charIndex >= 0) {
-      this.displayText = currentWord.substring(0, this.charIndex--);
+      this.activeRole = currentRole.substring(0, this.charIndex--);
     }
 
-    if (this.charIndex === currentWord.length + 1) {
+    if (this.charIndex === currentRole.length + 1) {
       this.isDeleting = true;
-      this.timeoutId = setTimeout(() => this.typeEffect(), 1100);
+      this.timeoutId = setTimeout(() => this.typeEffect(), 1400);
       return;
     }
 
     if (this.charIndex === -1) {
       this.isDeleting = false;
-      this.wordIndex = (this.wordIndex + 1) % this.profile.roles.length;
+      this.roleIndex = (this.roleIndex + 1) % this.profile.roles.length;
     }
 
-    this.timeoutId = setTimeout(() => this.typeEffect(), this.isDeleting ? 50 : 95);
+    this.timeoutId = setTimeout(() => this.typeEffect(), this.isDeleting ? 45 : 90);
   }
 }

@@ -10,6 +10,7 @@ import { HeroSectionComponent } from './component/hero-section/hero-section.comp
 import { AboutComponent } from './component/about/about.component';
 import { SkillsComponent } from './component/skills/skills.component';
 import { ProjectsComponent } from './component/projects/projects.component';
+import { AiWorkflowComponent } from './component/ai-workflow/ai-workflow.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { LegacyRedirectComponent } from './pages/legacy-redirect.component';
@@ -26,6 +27,7 @@ import { MagneticDirective } from './directives/magnetic.directive';
     AboutComponent,
     SkillsComponent,
     ProjectsComponent,
+    AiWorkflowComponent,
     ContactComponent,
     FooterComponent,
     LegacyRedirectComponent,

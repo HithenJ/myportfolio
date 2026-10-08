@@ -11,4 +11,10 @@ export class AboutComponent {
   experience = experience;
   education = education;
   socials = socials;
+
+  activeTab: 'experience' | 'education' = 'experience';
+
+  setTab(tab: 'experience' | 'education'): void {
+    this.activeTab = tab;
+  }
 }

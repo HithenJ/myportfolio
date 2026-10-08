@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { profile } from '../../data/portfolio.data';
+import { profile, socials } from '../../data/portfolio.data';
 
 @Component({
   selector: 'app-contact',
@@ -8,21 +8,23 @@ import { profile } from '../../data/portfolio.data';
 })
 export class ContactComponent {
   profile = profile;
+  socials = socials;
+
   submitted = false;
   sending = false;
   error = '';
-  copied: 'email' | 'phone' | null = null;
+  copiedKind: 'email' | 'phone' | null = null;
 
   async copy(kind: 'email' | 'phone'): Promise<void> {
     const value = kind === 'email' ? this.profile.email : this.profile.phoneDisplay;
     try {
       await navigator.clipboard.writeText(value);
-      this.copied = kind;
+      this.copiedKind = kind;
       setTimeout(() => {
-        this.copied = null;
-      }, 1800);
+        this.copiedKind = null;
+      }, 2000);
     } catch {
-      this.error = 'Could not copy. Please select the text instead.';
+      this.error = 'Unable to copy text automatically.';
     }
   }
 
@@ -38,19 +40,19 @@ export class ContactComponent {
       method: 'POST',
       body: formData
     }).then((response) => {
+      this.sending = false;
       if (response.ok) {
         this.submitted = true;
         form.reset();
         setTimeout(() => {
           this.submitted = false;
-        }, 5000);
+        }, 6000);
       } else {
-        this.error = 'Something went wrong. Please try again or email me directly.';
+        this.error = 'Failed to submit form. Please send a direct email to ' + this.profile.email;
       }
-      this.sending = false;
     }).catch(() => {
-      this.error = 'Failed to send. Check your connection, or email me directly.';
       this.sending = false;
+      this.error = 'Network error. Please reach out directly via ' + this.profile.email;
     });
   }
 }

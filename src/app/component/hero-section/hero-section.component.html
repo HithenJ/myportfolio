@@ -1,63 +1,149 @@
-<section class="hero-section" id="hero">
+<section id="hero" class="hero-section">
   <div class="container">
-    <div class="row align-items-center min-vh-100 gy-5">
-      <div class="col-lg-6 col-md-12 hero-content">
-        <div class="hero-text-wrapper" appReveal>
-          <div class="greeting-badge">
-            <span class="wave" aria-hidden="true">👋</span>
-            <span>Hello, I'm</span>
+    <div class="hero-grid">
+      <!-- Left Column: Editorial Positioning & CTAs -->
+      <div class="hero-content" appReveal>
+        <!-- Availability Radar Badge -->
+        <div class="hero-status-row">
+          <span class="pulse-indicator">
+            <span class="pulse-dot"></span>
+            <span>Available for Opportunities</span>
+          </span>
+          <span class="location-tag">
+            <i class="fa-solid fa-location-dot"></i> {{ profile.location }}
+          </span>
+        </div>
+
+        <!-- Headline & Dynamic Typewriter Role -->
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">{{ profile.name }}</span>
+        </h1>
+
+        <div class="role-typewriter">
+          <span class="type-prefix">Specialized in:</span>
+          <span class="type-text">{{ activeRole }}</span>
+          <span class="type-cursor">|</span>
+        </div>
+
+        <!-- Exact Original Tagline & Bio -->
+        <p class="hero-description">
+          {{ profile.tagline }}
+        </p>
+
+        <!-- Action CTAs -->
+        <div class="hero-ctas">
+          <a href="#projects" (click)="$event.preventDefault(); scrollTo('projects')" class="btn-2026 btn-primary-2026">
+            <span>View My Projects</span>
+            <i class="fa-solid fa-arrow-down"></i>
+          </a>
+
+          <button (click)="copyEmail()" class="btn-2026 btn-secondary-2026 copy-email-btn">
+            <i class="fa-solid" [class.fa-check]="copiedEmail" [class.fa-copy]="!copiedEmail"></i>
+            <span>{{ copiedEmail ? 'Email Copied!' : profile.email }}</span>
+          </button>
+        </div>
+
+        <!-- Social & Specs Badges -->
+        <div class="hero-meta-row">
+          <div class="social-links-row">
+            <a *ngFor="let s of socials" [href]="s.href" target="_blank" class="social-icon-btn" [title]="s.label">
+              <i *ngIf="s.icon === 'email'" class="fa-solid fa-envelope"></i>
+              <i *ngIf="s.icon === 'phone'" class="fa-solid fa-phone"></i>
+              <i *ngIf="s.icon === 'github'" class="fab fa-github"></i>
+              <i *ngIf="s.icon === 'linkedin'" class="fab fa-linkedin"></i>
+            </a>
           </div>
 
-          <h1 class="hero-title">{{ profile.name }}</h1>
+          <div class="meta-divider"></div>
 
-          <div class="hero-subtitle">
-            <span class="subtitle-text">I'm into</span>
-            <div class="typewriter-container">
-              <span class="typewriter">{{ displayText }}</span>
-            </div>
-          </div>
-
-          <p class="hero-description">{{ profile.tagline }}</p>
-
-          <div class="hero-actions">
-            <a [href]="profile.resumePath" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg"
-              appMagnetic>
-              View resume
-            </a>
-            <a routerLink="/" fragment="contact" class="btn btn-secondary btn-lg" appMagnetic>
-              Let's talk
-            </a>
-            <a [href]="profile.resumePath" download class="btn btn-secondary btn-lg">
-              Download
-            </a>
-          </div>
-
-          <div class="hero-social">
-            <a *ngFor="let link of socials" [href]="link.href" class="social-link" [attr.title]="link.label"
-              [attr.aria-label]="link.label" target="_blank" rel="noopener noreferrer">
-              <i *ngIf="link.icon === 'email'" class="fa-solid fa-envelope"></i>
-              <i *ngIf="link.icon === 'phone'" class="fa-solid fa-phone"></i>
-              <i *ngIf="link.icon === 'github'" class="fab fa-github"></i>
-              <i *ngIf="link.icon === 'linkedin'" class="fab fa-linkedin-in"></i>
-            </a>
+          <div class="core-tech-pills">
+            <span class="tech-tag"><i class="fab fa-angular" style="color: #dd0031;"></i> Angular</span>
+            <span class="tech-tag"><i class="fa-solid fa-code" style="color: #3178c6;"></i> TypeScript</span>
+            <span class="tech-tag"><i class="fab fa-bootstrap" style="color: #7952b3;"></i> Bootstrap</span>
           </div>
         </div>
       </div>
 
-      <div class="col-lg-6 col-md-12 hero-image-wrapper" appReveal>
-        <div class="hero-image-container">
-          <div class="image-frame">
-            <img [src]="profile.photo" [alt]="profile.name + ' — Full Stack Developer'" class="hero-image">
+      <!-- Right Column: Interactive Developer Command Console -->
+      <div class="hero-console-wrapper" appReveal>
+        <div class="console-card">
+          <!-- Window Header Bar -->
+          <div class="console-bar">
+            <div class="window-dots">
+              <span class="dot dot-close"></span>
+              <span class="dot dot-minimize"></span>
+              <span class="dot dot-expand"></span>
+            </div>
+            <div class="console-tabs">
+              <button
+                class="tab-btn"
+                [class.active]="activeTab === 'config'"
+                (click)="setTab('config')"
+              >
+                <i class="fa-solid fa-file-code"></i> developer.config.ts
+              </button>
+              <button
+                class="tab-btn"
+                [class.active]="activeTab === 'metrics'"
+                (click)="setTab('metrics')"
+              >
+                <i class="fa-solid fa-chart-line"></i> info.json
+              </button>
+              <button
+                class="tab-btn"
+                [class.active]="activeTab === 'stack'"
+                (click)="setTab('stack')"
+              >
+                <i class="fa-solid fa-microchip"></i> ai_workflow.env
+              </button>
+            </div>
+          </div>
+
+          <!-- Tab Content Panes -->
+          <div class="console-body">
+            <!-- TAB 1: Config Pane -->
+            <div *ngIf="activeTab === 'config'" class="pane-code">
+              <div class="code-line"><span class="c-keyword">export const</span> <span class="c-var">developer</span> = &#123;</div>
+              <div class="code-line pad-1"><span class="c-prop">name</span>: <span class="c-str">'Hithen Jessu'</span>,</div>
+              <div class="code-line pad-1"><span class="c-prop">role</span>: <span class="c-str">'Web Developer @ CGXperts'</span>,</div>
+              <div class="code-line pad-1"><span class="c-prop">education</span>: <span class="c-str">'MCA (7.62 GPA) - Nishitha Degree College'</span>,</div>
+              <div class="code-line pad-1"><span class="c-prop">skills</span>: [<span class="c-str">'Angular'</span>, <span class="c-str">'TypeScript'</span>, <span class="c-str">'Bootstrap'</span>, <span class="c-str">'Express.js'</span>, <span class="c-str">'SQL'</span>],</div>
+              <div class="code-line pad-1"><span class="c-prop">openForOpportunities</span>: <span class="c-bool">true</span></div>
+              <div class="code-line">&#125;;</div>
+            </div>
+
+            <!-- TAB 2: Metrics Pane -->
+            <div *ngIf="activeTab === 'metrics'" class="pane-code">
+              <div class="code-line"><span class="c-comment">// Developer Information</span></div>
+              <div class="code-line"><span class="c-keyword">const</span> <span class="c-var">info</span> = &#123;</div>
+              <div class="code-line pad-1"><span class="c-prop">currentRole</span>: <span class="c-str">'Web Developer at CGXperts'</span>,</div>
+              <div class="code-line pad-1"><span class="c-prop">location</span>: <span class="c-str">'Hyderabad, India'</span>,</div>
+              <div class="code-line pad-1"><span class="c-prop">focus</span>: <span class="c-str">'Crafting beautiful, responsive, user-friendly web apps'</span>,</div>
+              <div class="code-line pad-1"><span class="c-prop">available</span>: <span class="c-bool">true</span></div>
+              <div class="code-line">&#125;;</div>
+            </div>
+
+            <!-- TAB 3: AI Stack Pane -->
+            <div *ngIf="activeTab === 'stack'" class="pane-code">
+              <div class="code-line"><span class="c-comment"># AI-Augmented Workflow</span></div>
+              <div class="code-line"><span class="c-prop">PROMPT_ENGINEERING</span>=<span class="c-str">"Rapid UI scaffolding & interface generation"</span></div>
+              <div class="code-line"><span class="c-prop">AI_CODE_REVIEW</span>=<span class="c-str">"Detecting edge cases & optimizing code quality"</span></div>
+              <div class="code-line"><span class="c-prop">HUMAN_VALIDATION</span>=<span class="c-str">"Architecture design, UX & business logic control"</span></div>
+            </div>
+          </div>
+
+          <!-- Console Footer Status -->
+          <div class="console-footer">
+            <div class="footer-left">
+              <span class="status-indicator-dot"></span>
+              <span class="footer-text">Angular Portfolio Active</span>
+            </div>
+            <div class="footer-right">
+              <span class="footer-tag">Type-Safe</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <a class="scroll-indicator" routerLink="/" fragment="about" aria-label="Scroll to about">
-    <span>Scroll</span>
-    <div class="mouse">
-      <div class="wheel"></div>
-    </div>
-  </a>
 </section>
