@@ -259,6 +259,10 @@
     display: none;
   }
 
+  .nav-cta-group {
+    display: none;
+  }
+
   .mobile-menu-btn {
     display: block;
   }

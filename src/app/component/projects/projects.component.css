@@ -355,3 +355,33 @@
     order: 2;
   }
 }
+
+@media (max-width: 576px) {
+  .case-studies-wrapper {
+    gap: 2.5rem;
+  }
+
+  .case-study-card,
+  .case-study-card.reverse-layout {
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .case-title {
+    font-size: clamp(1.4rem, 7vw, 1.8rem);
+  }
+
+  .browser-body {
+    min-height: 200px;
+    padding: 1.2rem;
+  }
+
+  .case-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .case-actions .btn-2026 {
+    justify-content: center;
+  }
+}
