@@ -69,7 +69,7 @@ export const experience: ExperienceItem[] = [
   {
     title: 'Web Developer',
     institution: 'CGXperts',
-    period: 'February 2026 – October 2026',
+    period: 'February 2026 – September 2026',
     current: false
   }
 ];
