@@ -53,7 +53,7 @@ export const profile = {
   email: 'hithenjessu@gmail.com',
   phone: '7842923783',
   phoneDisplay: '+91 7842923783',
-  resumePath: '/assets/Hithen-Jessu_resume.pdf',
+  resumePath: '/assets/Hithen_Jessu-resume.pdf',
   photo: '/assets/lb.jpg',
   available: true
 };
